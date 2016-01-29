@@ -17,14 +17,14 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 {{#if currentUser}}
                 <ul class="nav navbar-nav">     
-                    <li>
-                        <a href="/readings">Readings</a>
+                    <li class="{{isActiveRoute 'readings'}}">
+                        <a href="{{pathFor route='readings'}}">Readings</a>
                     </li>  
-                    <li>
-                        <a href="/charts">Charts</a>
+                    <li class="{{isActiveRoute 'charts'}}">
+                        <a href="{{pathFor route='charts'}}">Charts</a>
                     </li> 
-                    <li>
-                        <a href="/maps">Maps</a>
+                    <li class="{{isActiveRoute 'maps'}}">
+                        <a href="{{pathFor route='maps'}}">Maps</a>
                     </li>              
                 </ul>
                 {{/if}}

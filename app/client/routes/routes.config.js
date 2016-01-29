@@ -3,7 +3,6 @@ Router.configure({
 });
 
 Router.onBeforeAction(function () {
-    console.log('before action');
     if (!Meteor.userId()) {
         // if the user is not logged in, render the Login template
         this.render('login');

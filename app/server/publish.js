@@ -1,6 +1,4 @@
 Meteor.publish('temperatureReadings', function () {
-    return Meteor.userId() ?
+    return this.userId ?
         TemperatureReadings.find({}) : [];
 });
-
-Meteor.subscribe('temperatureReadings');

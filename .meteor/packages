@@ -21,3 +21,5 @@ accounts-password
 accounts-ui
 twbs:bootstrap
 iron:router
+zimme:active-route
+momentjs:moment
