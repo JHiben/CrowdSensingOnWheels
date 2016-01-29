@@ -1,0 +1,40 @@
+<template name="readingsList">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>sender</th>
+                <th>temperature</th>
+                <th>latitude</th>
+                <th>longitude</th>
+                <th>altitude</th>
+                <th>time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each readings}}
+            <tr>
+                <td>{{senderId}}</td>
+                <td>{{temperature}}°C</td>
+                <td>{{geoposition.latitude}}</td>
+                <td>{{geoposition.longitude}}</td>
+                <td>{{geoposition.altitude}}</td>
+                <td>{{readAt}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    <nav>
+        <ul class="pagination">
+            <li class="disabled">
+                <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            {{#each pages}}
+            <li class="{{#if equals currentPage this}}active{{/if}}">
+                <a href="#">{{this}}</a>
+            </li>
+            {{/each}}
+        </ul>
+    </nav>
+</template>

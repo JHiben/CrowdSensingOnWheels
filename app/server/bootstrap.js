@@ -1,20 +1,16 @@
-TemperatureReadings = new Mongo.Collection('temperatureReadings');
+// Global API configuration
+var Api = new Restivus({
+    useDefaultAuth: true,
+    prettyJson: true
+});
 
-if (Meteor.isServer) {
-
-    // Global API configuration
-    var Api = new Restivus({
-        useDefaultAuth: true,
-        prettyJson: true
-    });
-
-    // Generates: GET, POST on /api/items and GET, PUT, DELETE on
-    // /api/items/:id for the Items collection
-    Api.addCollection(TemperatureReadings, {
-        routeOptions: {
-            authRequired: true
-        }
-    });
+// Generates: GET, POST on /api/items and GET, PUT, DELETE on
+// /api/items/:id for the Items collection
+Api.addCollection(TemperatureReadings, {
+    routeOptions: {
+        authRequired: true
+    }
+});
 
     // Maps to: /api/articles/:id
     // Api.addRoute('temperatureReadings/:id', { authRequired: true }, {
@@ -34,11 +30,3 @@ if (Meteor.isServer) {
     //     //     }
     //     // }
     // });
-    
-}
-
-if (Meteor.isClient) {
-    Accounts.ui.config({
-        passwordSignupFields: "USERNAME_AND_EMAIL"
-    });
-}
