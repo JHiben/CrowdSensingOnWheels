@@ -1,0 +1,45 @@
+<template name="readingsList">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>sender</th>
+                <th>temperature</th>
+                <th>latitude</th>
+                <th>longitude</th>
+                <th>altitude</th>
+                <th>time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each readings}}
+            <tr>
+                <td>{{senderId}}</td>
+                <td>{{temperature}}°C</td>
+                <td>{{geoposition.latitude}}</td>
+                <td>{{geoposition.longitude}}</td>
+                <td>{{geoposition.altitude}}</td>
+                <td>{{momentjs readAt 'DD/MM/YYYY HH:mm:ss'}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    <nav>
+        <ul class="pagination">
+            <li class="{{#if equals currentPage 1}}disabled{{/if}} pagination-previous-js">
+                <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            {{#each pages}}
+            <li class="{{#if equals currentPage this}}active{{/if}} pagination-number-js">
+                <a href="#">{{this}}</a>
+            </li>
+            {{/each}}
+            <li class="{{#if equals currentPage lastPage}}disabled{{/if}} pagination-next-js">
+                <a href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</template>
