@@ -1,4 +1,4 @@
 Meteor.publish('temperatureReadings', function () {
     return this.userId ?
-        TemperatureReadings.find({}, { limit: 200 }) : [];
+        TemperatureReadings.find({}, { sort: { readAt: -1 }, limit: 200 }) : [];
 });
